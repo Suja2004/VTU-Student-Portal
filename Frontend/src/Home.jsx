@@ -105,10 +105,11 @@ function Home() {
                             <p><b>Guide:</b> {projectDetails.guide_name}</p>
 
                             <h2>Team</h2>
-                            {projectDetails?.project_member_details?.map((m, i) => (
+                            {projectDetails?.project_member_details?.map((member, i) => (
                                 <div key={i} className="member">
-                                    <p>{m.name}</p>
-                                    <p>{m.usn}</p>
+                                    <p>{member.name}</p>
+                                    <p>{member.email}</p>
+                                    <p>{member.usn}</p>
                                 </div>
                             ))}
                         </>

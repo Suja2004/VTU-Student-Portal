@@ -276,7 +276,9 @@ body {
 
 /* ===== Team Members ===== */
 .member {
-  display: flex;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   padding: 10px 14px;
   background: var(--vtu-gray);
@@ -475,6 +477,11 @@ table td button:hover {
 
   .card {
     padding: 20px;
+  }
+
+  .member {
+    width: 100%;
+    display: flex;
   }
 
   table th,
