@@ -112,6 +112,13 @@ body {
   margin-top: 10px;
 }
 
+.login-note {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
+
 /* ===== App Layout ===== */
 .app-container {
   display: flex;

@@ -51,8 +51,6 @@ export default function Login({ onLogin }) {
                     required
                 />
 
-                <br /><br />
-
                 <input
                     type="password"
                     placeholder="Password"
@@ -61,14 +59,16 @@ export default function Login({ onLogin }) {
                     required
                 />
 
-                <br /><br />
-
                 <button type="submit" disabled={loading}>
                     {loading ? "Logging in..." : "Login"}
                 </button>
             </form>
 
             {error && <p style={{ color: "red" }}>{error}</p>}
+            
+            <p className="login-note">
+                Note: Use the same credentials as the VTU Internyet Portal.
+            </p>
         </div>
     );
 }
