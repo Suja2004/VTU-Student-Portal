@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/vtu/:path*",
+      "destination": "https://vtuapi.internyet.in/:path*"
+    }
+  ]
+}
