@@ -1,0 +1,485 @@
+/* App.css - VTU Style */
+
+/* ===== CSS Variables ===== */
+:root {
+  --vtu-sapphire: #004f80;
+  --vtu-sapphire-dark: #000e5c;
+  --vtu-sapphire-light: #2a6ca5;
+  --vtu-gold: #d4af37;
+  --vtu-cream: #f5f5dc;
+  --vtu-gray: #f4f4f4;
+  --vtu-gray-dark: #333;
+  --vtu-white: #ffffff;
+  --vtu-border: #ddd;
+  --vtu-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--vtu-gray);
+  color: var(--vtu-gray-dark);
+  line-height: 1.6;
+}
+
+/* ===== Login Page ===== */
+.login-container {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 40px;
+  background: var(--vtu-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--vtu-shadow);
+  border-top: 4px solid var(--vtu-sapphire);
+}
+
+.login-container h2 {
+  text-align: center;
+  color: var(--vtu-sapphire);
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+.login-container .subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.login-container .vtu-logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 80px;
+  height: auto;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--vtu-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: var(--vtu-sapphire);
+  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: var(--vtu-sapphire);
+  color: var(--vtu-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-container button:hover:not(:disabled) {
+  background: var(--vtu-sapphire-dark);
+}
+
+.login-container button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.login-container .error {
+  color: #c00;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* ===== App Layout ===== */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.sidebar-panel {
+  display: flex;
+  position: relative;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
+  background: linear-gradient(
+    180deg,
+    var(--vtu-sapphire) 0%,
+    var(--vtu-sapphire-dark) 10%
+  );
+  color: var(--vtu-white);
+}
+
+.sidebar-panel.closed .sidebar {
+  width: 0;
+  padding: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar h2 {
+  padding: 24px 20px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #ffffff1a;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.sidebar nav {
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+}
+
+.sidebar nav a {
+  color: #ffffffd9;
+  text-decoration: none;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar nav a:hover {
+  background: #ffffff1a;
+  color: var(--vtu-white);
+  border-left-color: var(--vtu-gold);
+}
+
+.sidebar nav a.active {
+  background: #ffffff26;
+  border-left-color: var(--vtu-gold);
+  color: var(--vtu-white);
+}
+
+.panel-button {
+  position: fixed;
+  z-index: 1500;
+  width: 35px;
+  height: 100vh;
+  padding-top: 50px;
+  background: linear-gradient(
+    180deg,
+    var(--vtu-sapphire) 0%,
+    var(--vtu-sapphire-dark) 10%
+  );
+  color: var(--vtu-white);
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ===== Main Content ===== */
+.content {
+  flex: 1;
+  padding: 30px;
+  background: var(--vtu-gray);
+}
+
+.content.shrink {
+  margin-left: 240px;
+}
+
+/* When sidebar closed */
+.content.expand {
+  margin-left: 10px;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--vtu-white);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px var(--vtu-shadow);
+  border-left: 4px solid var(--vtu-sapphire);
+}
+
+.card h1 {
+  color: var(--vtu-sapphire);
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--vtu-cream);
+}
+
+.card h2 {
+  color: var(--vtu-sapphire-dark);
+  font-size: 1.1rem;
+  margin: 20px 0 12px;
+}
+
+.card p {
+  margin: 8px 0;
+  color: #444;
+}
+
+.card p b {
+  color: var(--vtu-sapphire-dark);
+  font-weight: 600;
+  min-width: 100px;
+  display: inline-block;
+}
+
+/* ===== Team Members ===== */
+.member {
+  display: flex;
+  gap: 20px;
+  padding: 10px 14px;
+  background: var(--vtu-gray);
+  border-radius: 4px;
+  margin: 8px 0;
+  border-left: 3px solid var(--vtu-gold);
+}
+
+.member p {
+  margin: 0;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+table thead {
+  background: var(--vtu-sapphire);
+  color: var(--vtu-white);
+}
+
+table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid var(--vtu-border);
+  transition: background 0.15s;
+}
+
+table tbody tr:hover {
+  background: #002b8008;
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--vtu-gray);
+}
+
+table tbody tr:nth-child(even):hover {
+  background: #0011800d;
+}
+
+table td {
+  padding: 12px 16px;
+  color: #444;
+  min-width: 150px;
+}
+
+table td button {
+  padding: 6px 14px;
+  background: transparent;
+  color: var(--vtu-sapphire);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+table td button:hover {
+  background: #001c801a;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--vtu-border);
+}
+
+.pagination button {
+  padding: 8px 18px;
+  background: var(--vtu-sapphire);
+  color: var(--vtu-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--vtu-sapphire-dark);
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Modal box */
+.modal {
+  background: white;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px #0000004d;
+}
+
+.modal .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal .header h1 {
+  flex: 2;
+}
+
+.modal .header button {
+  margin-top: -30px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  color: #ff0000;
+}
+
+/* ===== Loading State ===== */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+.loading h2,
+.loading h3 {
+  color: #888;
+  font-weight: 400;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  * {
+    overflow-x: hidden;
+  }
+
+  .sidebar-panel {
+    position: fixed;
+  }
+
+  .sidebar nav a {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .panel-button {
+    height: 100vh;
+    padding-top: 50px;
+  }
+
+  .content {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .content.shrink,
+  .content.expand {
+    margin-left: 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  table th,
+  table td {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .description {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

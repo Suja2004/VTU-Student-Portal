@@ -1,0 +1,437 @@
+/* App.css - VTU Style */
+
+/* ===== CSS Variables ===== */
+:root {
+  --vtu-maroon: #800000;
+  --vtu-maroon-dark: #5c0000;
+  --vtu-maroon-light: #a52a2a;
+  --vtu-gold: #d4af37;
+  --vtu-cream: #f5f5dc;
+  --vtu-gray: #f4f4f4;
+  --vtu-gray-dark: #333;
+  --vtu-white: #ffffff;
+  --vtu-border: #ddd;
+  --vtu-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--vtu-gray);
+  color: var(--vtu-gray-dark);
+  line-height: 1.6;
+}
+
+/* ===== Login Page ===== */
+.login-container {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 40px;
+  background: var(--vtu-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px var(--vtu-shadow);
+  border-top: 4px solid var(--vtu-maroon);
+}
+
+.login-container h2 {
+  text-align: center;
+  color: var(--vtu-maroon);
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+.login-container .subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.login-container .vtu-logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 80px;
+  height: auto;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--vtu-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: var(--vtu-maroon);
+  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.1);
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: var(--vtu-maroon);
+  color: var(--vtu-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-container button:hover:not(:disabled) {
+  background: var(--vtu-maroon-dark);
+}
+
+.login-container button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.login-container .error {
+  color: #c00;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* ===== App Layout ===== */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.sidebar-panel {
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  background: linear-gradient(
+    180deg,
+    var(--vtu-maroon) 0%,
+    var(--vtu-maroon-dark) 100%
+  );
+  color: var(--vtu-white);
+  padding: 0;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar.panel-button {
+  width: 25px;
+  left: 240px;
+  height: auto;
+  background: transparent;
+  color: var(--vtu-maroon-dark);
+}
+
+.sidebar h2 {
+  padding: 24px 20px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+}
+
+.sidebar nav a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--vtu-white);
+  border-left-color: var(--vtu-gold);
+}
+
+.sidebar nav a.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-left-color: var(--vtu-gold);
+  color: var(--vtu-white);
+}
+
+/* ===== Main Content ===== */
+.content {
+  flex: 1;
+  margin-left: 240px;
+  padding: 30px;
+  background: var(--vtu-gray);
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--vtu-white);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px var(--vtu-shadow);
+  border-left: 4px solid var(--vtu-maroon);
+}
+
+.card h1 {
+  color: var(--vtu-maroon);
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--vtu-cream);
+}
+
+.card h2 {
+  color: var(--vtu-maroon-dark);
+  font-size: 1.1rem;
+  margin: 20px 0 12px;
+}
+
+.card p {
+  margin: 8px 0;
+  color: #444;
+}
+
+.card p b {
+  color: var(--vtu-maroon-dark);
+  font-weight: 600;
+  min-width: 100px;
+  display: inline-block;
+}
+
+/* ===== Team Members ===== */
+.member {
+  display: flex;
+  gap: 20px;
+  padding: 10px 14px;
+  background: var(--vtu-gray);
+  border-radius: 4px;
+  margin: 8px 0;
+  border-left: 3px solid var(--vtu-gold);
+}
+
+.member p {
+  margin: 0;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+table thead {
+  background: var(--vtu-maroon);
+  color: var(--vtu-white);
+}
+
+table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid var(--vtu-border);
+  transition: background 0.15s;
+}
+
+table tbody tr:hover {
+  background: rgba(128, 0, 0, 0.03);
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--vtu-gray);
+}
+
+table tbody tr:nth-child(even):hover {
+  background: rgba(128, 0, 0, 0.05);
+}
+
+table td {
+  padding: 12px 16px;
+  color: #444;
+}
+
+table td button {
+  padding: 6px 14px;
+  background: transparent;
+  color: var(--vtu-maroon);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+table td button:hover {
+  background: rgba(128, 0, 0, 0.1);
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--vtu-border);
+}
+
+.pagination button {
+  padding: 8px 18px;
+  background: var(--vtu-maroon);
+  color: var(--vtu-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--vtu-maroon-dark);
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal box */
+.modal {
+  background: white;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal button {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  color: var(--vtu-maroon-light);
+}
+
+/* ===== Loading State ===== */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+.loading h2,
+.loading h3 {
+  color: #888;
+  font-weight: 400;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  /* .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+  }
+
+  .sidebar h2 {
+    padding: 16px;
+  }
+
+  .sidebar nav {
+    justify-content: space-evenly;
+    padding: 0;
+  }
+
+  .sidebar nav a {
+    padding: 12px 16px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    border-left: none;
+    border-bottom-color: var(--vtu-gold);
+  } */
+
+  .app-container {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 20px 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  table th,
+  table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
