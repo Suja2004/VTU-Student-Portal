@@ -132,13 +132,14 @@ function Home() {
                         </>
                     )}
                 </section>
-                <section id="project-diary" className="card">
-                    <DiaryTable type="project" title="Project Diary" />
-                </section>
+                {projectDetails && <section id="project-diary" className="card">
+                    <DiaryTable type="project" title="Project Diary" metaId={projectDetails?.id} metaTitle={projectDetails?.title} />
+                </section>}
 
-                <section id="internship-diary" className="card">
-                    <DiaryTable type="internship" title="Internship Diary" />
-                </section>
+                {internshipDetails && <section id="internship-diary" className="card">
+                    <DiaryTable type="internship" title="Internship Diary" metaId={internshipDetails?.[0]?.internship_id}
+                        metaTitle={internshipDetails?.[0]?.internship_details?.name} />
+                </section>}
 
             </main>
         </div>
