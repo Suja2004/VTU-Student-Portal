@@ -1,7 +1,7 @@
 # VTU Student Project & Internship Management Portal
 
 ## Overview
-A centralized web platform designed to help students track their project and internship-related activities. It provides a simple and user-friendly interface to view student details, project and internship diary logs.
+A simple web platform designed to help students track their project and internship-related activities. It provides a simple and user-friendly interface for student details, project and internship diary logs.
 
 ---
 
