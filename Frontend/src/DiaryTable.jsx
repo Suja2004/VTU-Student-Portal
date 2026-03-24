@@ -113,6 +113,20 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleAdd = () => {
+        setFormData({
+            date: "",
+            description: "",
+            hours: "",
+            learnings: "",
+            blockers: "",
+            skills: [],
+            links: ""
+        });
+        setIsEditMode(false);
+        setShowCreateModal(true);
+    }
+
     const handleCreate = async () => {
         try {
             const payload = {
@@ -198,7 +212,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                 <h1>
                     {title}: {metaTitle}
                 </h1>
-                <button className="add-button" onClick={() => setShowCreateModal(true)} title="Add">
+                <button className="add-button" onClick={() => handleAdd()} title="Add">
                     <SquarePen />
                 </button>
             </div>
