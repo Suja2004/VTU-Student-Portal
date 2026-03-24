@@ -77,7 +77,7 @@ function Home() {
 
             {/* Main Content */}
             <main className={`content ${sidebarOpen ? "shrink" : "expand"}`}>
-                <h1>VTU Student Activity View Portal</h1>
+                <h1>VTU Student Activity Portal</h1>
                 <section id="student" className="card">
                     {!studentDetails ? (
                         <h2>Loading student...</h2>

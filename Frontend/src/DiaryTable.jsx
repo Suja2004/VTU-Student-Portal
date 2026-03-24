@@ -360,7 +360,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     maxLength={2000}
                                     onChange={handleChange}
                                 />
-                                <small>{formData.description.length}/2000</small>
+                                <small>{formData.description.length || 0}/2000</small>
                             </div>
 
                             <div className="hour">
@@ -386,7 +386,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     value={formData.links || ""}
                                     onChange={handleChange}
                                 />
-                                <small>{formData.links.length}/5000</small>
+                                <small>{formData.links.length || 0}/5000</small>
                             </div>
 
                             <div className="learn">
@@ -398,7 +398,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     maxLength={2000}
                                     onChange={handleChange}
                                 />
-                                <small>{formData.learnings.length}/2000</small>
+                                <small>{formData.learnings.length || 0}/2000</small>
                             </div>
 
                             <div className="blocker">
@@ -410,7 +410,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     maxLength={1000}
                                     onChange={handleChange}
                                 />
-                                <small>{formData.blockers.length}/1000</small>
+                                <small>{formData.blockers.length || 0}/1000</small>
                             </div>
 
                             <div className="skills">
@@ -422,7 +422,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                         {formData.skills.map(id => (
                                             <span key={id} className="chip">
                                                 {skillMap[id]}
-                                                <button onClick={() => removeSkill(id)}>×</button>
+                                                <button onClick={() => removeSkill(id)}><X /></button>
                                             </span>
                                         ))}
 

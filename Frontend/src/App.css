@@ -237,12 +237,18 @@ body {
   margin-left: 10px;
 }
 
+.content h1 {
+  color: var(--vtu-sapphire);
+  font-size: 1.8rem;
+  margin: 0 10px 10px 20px;
+}
+
 /* ===== Cards ===== */
 .card {
   background: var(--vtu-white);
   border-radius: 8px;
   padding: 24px 28px;
-  margin-bottom: 24px;
+  margin: 0 0 10px 20px;
   box-shadow: 0 2px 8px var(--vtu-shadow);
   border-left: 4px solid var(--vtu-sapphire);
 }
@@ -566,7 +572,6 @@ table td button:hover {
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 20px;
 }
 
 .dropdown {
@@ -705,8 +710,12 @@ table td button:hover {
     font-size: 0.8rem;
   }
 
+  table td {
+    min-width: auto;
+  }
+
   .description {
-    max-width: 50px;
+    max-width: 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
