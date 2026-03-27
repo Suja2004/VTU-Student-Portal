@@ -8,7 +8,7 @@ function Home() {
     const [studentDetails, setStudentDetails] = useState(null);
     const [projectDetails, setProjectDetails] = useState(null);
     const [internshipDetails, setInternshipDetails] = useState(null);
-    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [sidebarOpen, setSidebarOpen] = useState(true)
 
     useEffect(() => {
         getStudentDetails()
