@@ -69,8 +69,8 @@ function Home() {
                     </nav>
                 </aside>
 
-                {!sidebarOpen && <div className="panel-button" >
-                    <PanelRightClose onClick={() => setSidebarOpen(!sidebarOpen)} />
+                {!sidebarOpen && <div className="panel-button" onClick={() => setSidebarOpen(!sidebarOpen)}>
+                    <PanelRightClose />
                 </div>}
 
             </div>
