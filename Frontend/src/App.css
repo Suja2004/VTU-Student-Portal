@@ -440,7 +440,7 @@ table td button:hover {
   background: white;
   padding: 20px;
   width: 600px;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 5px 20px #0000004d;
 }
 
@@ -458,7 +458,6 @@ table td button:hover {
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  border: none;
   cursor: pointer;
 }
 
@@ -471,10 +470,10 @@ table td button:hover {
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   grid-template-areas:
-    "date date hour"
+    "date . hour"
     "desc desc desc"
+    "learn learn learn"
     "skills skills skills"
-    "learn learn links"
     "blocker blocker links"
     ". submit .";
 }
@@ -524,10 +523,15 @@ table td button:hover {
 .form textarea,
 .form select {
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  height: auto;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #000000;
+  height: 40px;
   resize: none;
+}
+
+.form textarea {
+  min-height: 80px;
 }
 
 .form .links textarea {
@@ -548,14 +552,22 @@ table td button:hover {
   flex-wrap: wrap;
   align-items: center;
   gap: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
   padding: 6px;
+  max-height: 90px;
+  overflow-y: auto;
 }
 
 .input-container input {
   border: none;
   outline: none;
+}
+
+.input-error {
+  border-bottom: 2px solid red !important;
+}
+
+.input-error:focus {
+  border-bottom: 1px solid red;
 }
 
 .chip {
@@ -569,6 +581,7 @@ table td button:hover {
 }
 
 .chip button {
+  scale: 0.6;
   border: none;
   background: none;
   cursor: pointer;

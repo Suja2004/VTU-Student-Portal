@@ -141,7 +141,6 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
 
             const res = await createDiary(type, payload);
 
-            // ✅ Show popup
             setPopup({
                 show: true,
                 message: res.message,
@@ -362,6 +361,8 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     value={formData.date || ""}
                                     onChange={handleChange}
                                     disabled={isEditMode}
+                                    max={new Date().toISOString().split("T")[0]}
+                                    className={!formData.date ? "input-error" : ""}
                                 />
                             </div>
 
@@ -373,8 +374,9 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     value={formData.description || ""}
                                     maxLength={2000}
                                     onChange={handleChange}
+                                    className={!formData.description ? "input-error" : ""}
                                 />
-                                <small>{formData.description.length || 0}/2000</small>
+                                <small>{formData.description?.length || 0}/2000</small>
                             </div>
 
                             <div className="hour">
@@ -384,23 +386,21 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     name="hours"
                                     placeholder="e.g. 8"
                                     value={formData.hours || ""}
-                                    min="0"
-                                    max="24"
-                                    step="0.25"
                                     onChange={handleChange}
+                                    className={!formData.hours ? "input-error" : ""}
                                 />
                             </div>
 
                             <div className="links">
-                                <label>Show Your Work</label>
-                                <textarea
+                                <label>Show Your Work (Links) </label>
+                                <input
                                     name="links"
-                                    placeholder="Paste links separated by commas"
+                                    placeholder="separated by commas"
                                     maxLength={5000}
                                     value={formData.links || ""}
                                     onChange={handleChange}
                                 />
-                                <small>{formData.links.length || 0}/5000</small>
+                                <small>{formData.links?.length || 0}/5000</small>
                             </div>
 
                             <div className="learn">
@@ -411,28 +411,27 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                     value={formData.learnings || ""}
                                     maxLength={2000}
                                     onChange={handleChange}
+                                    className={!formData.learnings ? "input-error" : ""}
                                 />
-                                <small>{formData.learnings.length || 0}/2000</small>
+                                <small>{formData.learnings?.length || 0}/2000</small>
                             </div>
 
                             <div className="blocker">
                                 <label>Blockers / Risks</label>
-                                <textarea
+                                <input
                                     name="blockers"
                                     placeholder="Any blockers faced?"
                                     value={formData.blockers || ""}
                                     maxLength={1000}
                                     onChange={handleChange}
                                 />
-                                <small>{formData.blockers.length || 0}/1000</small>
+                                <small>{formData.blockers?.length || 0}/1000</small>
                             </div>
 
                             <div className="skills">
                                 <label>Skills Used <span>*</span></label>
                                 <div className="skills-input">
-
-                                    <div className="input-container">
-
+                                    <div className={`input-container ${formData.skills.length === 0 ? "input-error" : ""}`}>
                                         {formData.skills.map(id => (
                                             <span key={id} className="chip">
                                                 {skillMap[id]}
@@ -445,12 +444,11 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                             placeholder={formData.skills.length === 0 ? "Search skills..." : ""}
                                             value={skillInput}
                                             onChange={(e) => setSkillInput(e.target.value)}
-                                            disabled={formData.skills.length >= 10}
+                                            disabled={formData.skills?.length >= 10}
                                         />
 
                                     </div>
 
-                                    {/* Dropdown */}
                                     {filteredSkills.length > 0 && formData.skills.length < 10 && (
                                         <div className="dropdown">
                                             {filteredSkills
