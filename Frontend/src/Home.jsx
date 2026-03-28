@@ -6,16 +6,18 @@ import { PanelRightOpen, PanelRightClose } from 'lucide-react';
 function Description({ text }) {
     const [expanded, setExpanded] = useState(false);
 
+    const safeText = text || "";
     const limit = 100;
-    const isLong = text.length > limit;
+
+    const isLong = safeText.length > limit;
 
     const displayText = expanded
-        ? text
-        : text.slice(0, limit) + (isLong ? "..." : "");
+        ? safeText
+        : safeText.slice(0, limit) + (isLong ? "..." : "");
 
     return (
         <p>
-            <b>Description:</b> {displayText}
+            <b>Description:</b> {displayText || "N/A"}
             {isLong && (
                 <span
                     onClick={() => setExpanded(!expanded)}
@@ -105,12 +107,12 @@ function Home() {
                     ) : (
                         <>
                             <h1>Student Details</h1>
-                            <p><b>Name:</b> {studentDetails.user.name}</p>
-                            <p><b>Email:</b> {studentDetails.user.email}</p>
-                            <p><b>Phone:</b> {studentDetails.user.mobile}</p>
-                            <p><b>USN:</b> {studentDetails.usn}</p>
-                            <p><b>Semester:</b> {studentDetails.semester}</p>
-                            <p><b>College:</b> {studentDetails.college.name}</p>
+                            <p><b>Name:</b> {studentDetails?.user?.name}</p>
+                            <p><b>Email:</b> {studentDetails?.user?.email}</p>
+                            <p><b>Phone:</b> {studentDetails?.user?.mobile}</p>
+                            <p><b>USN:</b> {studentDetails?.usn}</p>
+                            <p><b>Semester:</b> {studentDetails?.semester}</p>
+                            <p><b>College:</b> {studentDetails?.college?.name}</p>
                         </>
                     )}
                 </section>
@@ -121,16 +123,16 @@ function Home() {
                     ) : (
                         <>
                             <h1>Project Details</h1>
-                            <p><b>Title:</b> {projectDetails.title}</p>
-                            <Description text={projectDetails.description} />
-                            <p><b>Guide:</b> {projectDetails.guide_name}</p>
+                            <p><b>Title:</b> {projectDetails?.title}</p>
+                            <Description text={projectDetails?.description} />
+                            <p><b>Guide:</b> {projectDetails?.guide_name}</p>
 
                             <h2>Team</h2>
-                            {projectDetails?.project_member_details?.map((member, i) => (
+                            {Array.isArray(projectDetails?.project_member_details) && projectDetails?.project_member_details?.map((member, i) => (
                                 <div key={i} className="member">
-                                    <p>{member.name}</p>
-                                    <p>{member.email}</p>
-                                    <p>{member.usn}</p>
+                                    <p>{member?.name}</p>
+                                    <p>{member?.email}</p>
+                                    <p>{member?.usn}</p>
                                 </div>
                             ))}
                         </>
@@ -142,12 +144,12 @@ function Home() {
                         <h2>Loading internship details...</h2>
                     ) : (
                         <>
-                            {internshipDetails.map((item, i) => (
+                            {Array.isArray(internshipDetails) && internshipDetails.map((item, i) => (
                                 <div key={i}>
                                     <h1>Internship Details</h1>
-                                    <p><b>Name:</b> {item.internship_details?.name}</p>
-                                    <p><b>Company:</b> {item.internship_details?.company}</p>
-                                    <p><b>Type:</b> {item.internship_details?.internship_type}</p>
+                                    <p><b>Name:</b> {item?.internship_details?.name}</p>
+                                    <p><b>Company:</b> {item?.internship_details?.company}</p>
+                                    <p><b>Type:</b> {item?.internship_details?.internship_type}</p>
                                 </div>
                             ))}
                         </>

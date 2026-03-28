@@ -46,8 +46,8 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
             .then((response) => {
                 const response_data = response.data;
 
-                setDiary(response_data.data);
-                setTotalPages(response_data.last_page);
+                setDiary(Array.isArray(response_data.data) ? response_data.data : []);
+                setTotalPages(response_data?.last_page);
             })
             .catch((err) => {
                 console.error(`Error Fetching ${type} Diary`, err);
@@ -216,8 +216,10 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                 </button>
             </div>
 
-            {!diary.length ? (
+            {!Array.isArray(diary) ? (
                 <h3>Loading...</h3>
+            ) : diary.length === 0 ? (
+                <h3>No entries found</h3>
             ) : (
                 <>
                     <table>
