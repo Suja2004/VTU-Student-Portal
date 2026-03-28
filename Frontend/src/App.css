@@ -281,7 +281,6 @@ body {
 
 /* ===== Team Members ===== */
 .member {
-  width: 70%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
