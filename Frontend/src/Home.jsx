@@ -3,6 +3,30 @@ import { getStudentDetails, getStudentProjectDetails, getStudentInternshipDetail
 import DiaryTable from "./DiaryTable";
 import { PanelRightOpen, PanelRightClose } from 'lucide-react';
 
+function Description({ text }) {
+    const [expanded, setExpanded] = useState(false);
+
+    const limit = 100;
+    const isLong = text.length > limit;
+
+    const displayText = expanded
+        ? text
+        : text.slice(0, limit) + (isLong ? "..." : "");
+
+    return (
+        <p>
+            <b>Description:</b> {displayText}
+            {isLong && (
+                <span
+                    onClick={() => setExpanded(!expanded)}
+                    style={{ color: "blue", cursor: "pointer", marginLeft: "5px" }}
+                >
+                    {expanded ? "" : "Read more"}
+                </span>
+            )}
+        </p>
+    );
+}
 
 function Home() {
     const [studentDetails, setStudentDetails] = useState(null);
@@ -39,10 +63,8 @@ function Home() {
     return (
         <div className="app-container">
 
-            {/* Sidebar */}
             <div className={`sidebar-panel ${sidebarOpen ? "open" : "closed"}`}>
 
-                {/* Sidebar */}
                 <aside className="sidebar">
                     <div className="sidebar-header">
                         <h2>Dashboard</h2>
@@ -75,7 +97,6 @@ function Home() {
 
             </div>
 
-            {/* Main Content */}
             <main className={`content ${sidebarOpen ? "shrink" : "expand"}`}>
                 <h1>VTU Student Activity Portal</h1>
                 <section id="student" className="card">
@@ -101,7 +122,7 @@ function Home() {
                         <>
                             <h1>Project Details</h1>
                             <p><b>Title:</b> {projectDetails.title}</p>
-                            <p><b>Description:</b> {projectDetails.description}</p>
+                            <Description text={projectDetails.description} />
                             <p><b>Guide:</b> {projectDetails.guide_name}</p>
 
                             <h2>Team</h2>

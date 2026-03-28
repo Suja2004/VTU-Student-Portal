@@ -709,7 +709,7 @@ table td button:hover {
 
   .member {
     width: 100%;
-    display: flex;
+    display: block;
   }
 
   .diary-table .header .add-button {
