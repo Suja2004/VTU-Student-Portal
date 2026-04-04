@@ -225,6 +225,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                     <table>
                         <thead>
                             <tr>
+                                <th>No.</th>
                                 <th>Date</th>
                                 <th>Description</th>
                                 <th>Action</th>
@@ -232,8 +233,9 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                         </thead>
 
                         <tbody>
-                            {diary.map((entry) => (
+                            {diary.map((entry, i) => (
                                 <tr key={entry.id}>
+                                    <td>{i+1}</td>
                                     <td>{entry.date}</td>
                                     <td className="description">{entry.description}</td>
                                     <td>

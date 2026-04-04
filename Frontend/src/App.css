@@ -12,12 +12,13 @@
   --vtu-shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* ===== Reset & Base ===== */
+/* ===== Base ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -150,6 +151,7 @@ body {
 .sidebar-panel.closed .sidebar {
   width: 0;
   padding: 0;
+  visibility: hidden;
 }
 
 .sidebar-header {
@@ -250,7 +252,6 @@ body {
   padding: 24px 28px;
   margin: 0 0 10px 20px;
   box-shadow: 0 2px 8px var(--vtu-shadow);
-  border-left: 4px solid var(--vtu-sapphire);
 }
 
 .card h1 {
@@ -288,7 +289,6 @@ body {
   background: var(--vtu-gray);
   border-radius: 4px;
   margin: 8px 0;
-  border-left: 3px solid var(--vtu-gold);
 }
 
 .member p {
