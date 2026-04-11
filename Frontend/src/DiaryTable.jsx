@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getSkills, getStudentDiary, getDiaryByID, createDiary } from "./assets/Api";
 import { Eye, X, SquarePen, Pen } from 'lucide-react';
 
@@ -27,6 +27,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
         message: "",
         type: "success"
     });
+    const inputRef = useRef(null);
 
     useEffect(() => {
         getSkills()
@@ -235,7 +236,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                         <tbody>
                             {diary.map((entry, i) => (
                                 <tr key={entry.id}>
-                                    <td>{i+1}</td>
+                                    <td>{i + 1}</td>
                                     <td>{entry.date}</td>
                                     <td className="description">{entry.description}</td>
                                     <td>
@@ -432,7 +433,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                                 <small>{formData.blockers?.length || 0}/1000</small>
                             </div>
 
-                            <div className="skills">
+                            <div className="skills" onClick={() => inputRef.current?.focus()}>
                                 <label>Skills Used <span>*</span></label>
                                 <div className="skills-input">
                                     <div className={`input-container ${formData.skills.length === 0 ? "input-error" : ""}`}>
@@ -445,12 +446,12 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
 
                                         <input
                                             type="text"
+                                            ref={inputRef}
                                             placeholder={formData.skills.length === 0 ? "Search skills..." : ""}
                                             value={skillInput}
                                             onChange={(e) => setSkillInput(e.target.value)}
                                             disabled={formData.skills?.length >= 10}
                                         />
-
                                     </div>
 
                                     {filteredSkills.length > 0 && formData.skills.length < 10 && (

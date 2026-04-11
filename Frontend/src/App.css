@@ -21,6 +21,10 @@
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--vtu-gray);
@@ -438,7 +442,7 @@ table td button:hover {
 .modal {
   background: white;
   padding: 20px;
-  width: 600px;
+  width: 650px;
   border-radius: 5px;
   box-shadow: 0 5px 20px #0000004d;
 }
@@ -731,5 +735,24 @@ table td button:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "date hour"
+      "desc desc"
+      "learn learn"
+      "skills skills"
+      "blocker blocker"
+      "links links"
+      "submit submit";
+  }
+  .form input {
+    height: 25px;
+  }
+
+  .form textarea {
+    min-height: 30px;
   }
 }
