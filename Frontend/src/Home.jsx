@@ -163,7 +163,12 @@ function Home() {
                     <DiaryTable type="internship" title="Internship Diary" metaId={internshipDetails?.[0]?.internship_id}
                         metaTitle={internshipDetails?.[0]?.internship_details?.name} />
                 </section>}
-
+                <footer>
+                    <span>Built for VTU students</span> 
+                    <a href="https://github.com/Suja2004/VTU-Student-Portal" target="_blank" rel="noopener noreferrer">
+                        GitHub Repo
+                    </a>
+                </footer>
             </main>
         </div>
     );

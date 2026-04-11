@@ -668,6 +668,19 @@ table td button:hover {
   background: #dc3545;
 }
 
+footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  color: #666;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: underline;
+  margin: 0 4px;
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);
