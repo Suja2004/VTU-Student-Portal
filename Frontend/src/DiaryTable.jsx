@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { getSkills, getStudentDiary, getDiaryByID, createDiary } from "./assets/Api";
-import { Eye, X, SquarePen, Pen } from 'lucide-react';
+import { Eye, X, SquarePen, Pen, ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight } from 'lucide-react';
 
 function DiaryTable({ type, title, metaId, metaTitle }) {
     const [page, setPage] = useState(1);
@@ -253,12 +253,18 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                     </table>
 
                     <div className="pagination">
-                        <button onClick={() => setPage((p) => p - 1)} disabled={page === 1}>
-                            Prev
+                        <button onClick={() => setPage(1)} disabled={page === 1} title="first page">
+                            <ChevronsLeft />
+                        </button>
+                        <button onClick={() => setPage((p) => p - 1)} disabled={page === 1} title="previous page">
+                            <ChevronLeft />
                         </button>
                         <span>Page {page} of {totalPages}</span>
-                        <button onClick={() => setPage((p) => p + 1)} disabled={page === totalPages}>
-                            Next
+                        <button onClick={() => setPage((p) => p + 1)} disabled={page === totalPages} title="next page">
+                            <ChevronRight />
+                        </button>
+                        <button onClick={() => setPage(totalPages)} disabled={page === totalPages} title="last page">
+                            <ChevronsRight />
                         </button>
                     </div>
 
