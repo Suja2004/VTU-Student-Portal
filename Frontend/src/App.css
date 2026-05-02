@@ -21,10 +21,6 @@
   scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-}
-
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--vtu-gray);
@@ -539,27 +535,11 @@ table td button:hover {
   user-select: all;
 }
 
-.example-title {
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-.example-btn {
-  margin-top: 8px;
-}
-
-.example-section {
-  margin-top: 10px;
-}
-
 .example-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  background: #f5f5f5;
-  padding: 6px 10px;
-  border-radius: 6px;
 }
 
 .toggle-icon {
@@ -581,29 +561,17 @@ table td button:hover {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  background: #f5f5f5;
-  padding: 6px 10px;
-  border-radius: 6px;
-  margin-top: 10px;
-}
-
-.skills-header:hover {
-  background: #eee;
-}
-
-.skills h3 {
-  margin: 0 20px 10px;
 }
 
 .skills input {
   width: 60%;
-  margin: 0 20px 10px;
-  padding: 8px;
+  padding: 4px;
   border-radius: 4px;
+  margin: 5px 10px;
 }
 
 .skills .copy-btn {
-  padding: 8px 16px;
+  padding: 4px 5px;
   background: transparent;
   color: var(--vtu-sapphire);
   border: var(--vtu-sapphire) 2px solid;
@@ -620,7 +588,7 @@ table td button:hover {
 
 .skills-reference {
   flex: 1;
-  max-height: 150px;
+  max-height: 100px;
   overflow-y: auto;
   border-left: 1px solid #ddd;
   padding-left: 10px;
@@ -663,7 +631,6 @@ table td button:hover {
 
 .progress-container p {
   font-size: 13px;
-  margin: 6px 0 10px;
   color: #444;
 }
 
@@ -697,7 +664,7 @@ table td button:hover {
 
 .upload-list {
   margin-top: 12px;
-  max-height: 250px;
+  max-height: 100px;
   overflow-y: auto;
   border: 1px solid #eee;
   border-radius: 8px;
