@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { getSkills, getStudentDiary, getDiaryByID, createDiary } from "./assets/Api";
-import { Eye, X, SquarePen, Pen, ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight } from 'lucide-react';
+import { Eye, X, SquarePen, Pen, ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight, Upload } from 'lucide-react';
+import BulkUploader from "./BulkUploader";
 
 function DiaryTable({ type, title, metaId, metaTitle }) {
     const [page, setPage] = useState(1);
@@ -12,6 +13,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
     const [skills, setSkills] = useState([]);
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
+    const [showBulkModal, setShowBulkModal] = useState(false);
     const [skillInput, setSkillInput] = useState("");
     const [filteredSkills, setFilteredSkills] = useState([]);
     const [formData, setFormData] = useState({
@@ -214,10 +216,27 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                 <h1>
                     {title}: {metaTitle}
                 </h1>
-                <button className="add-button" onClick={() => handleAdd()} title="Add">
-                    <SquarePen />
-                </button>
+
+                <div className="add-buttons">
+                    <button className="add-button" onClick={() => handleAdd()} title="Add">
+                        <SquarePen />
+                    </button>
+                    <button className="add-button" onClick={() => setShowBulkModal(true)}>
+                        <Upload />
+                    </button>
+                </div>
             </div>
+
+            <BulkUploader
+                type={type}
+                title={title}
+                metaId={metaId}
+                createDiary={createDiary}
+                skills={skills} 
+                isOpen={showBulkModal}
+                onClose={() => setShowBulkModal(false)}
+                onComplete={() => fetchDiary(page)}
+            />
 
             {!Array.isArray(diary) ? (
                 <h3>Loading...</h3>
