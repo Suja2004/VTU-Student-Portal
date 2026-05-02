@@ -5,6 +5,7 @@ import { Eye, X, SquarePen, Pen, ChevronLeft, ChevronsLeft, ChevronRight, Chevro
 function DiaryTable({ type, title, metaId, metaTitle }) {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [totalDays, setTotalDays] = useState(0);
     const [selectedEntryId, setSelectedEntryId] = useState(null);
     const [selectedDiaryData, setSelectedDiaryData] = useState(null);
     const [diary, setDiary] = useState([]);
@@ -49,6 +50,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
 
                 setDiary(Array.isArray(response_data.data) ? response_data.data : []);
                 setTotalPages(response_data?.last_page);
+                setTotalDays(response_data?.total)
             })
             .catch((err) => {
                 console.error(`Error Fetching ${type} Diary`, err);
@@ -223,6 +225,7 @@ function DiaryTable({ type, title, metaId, metaTitle }) {
                 <h3>No entries found</h3>
             ) : (
                 <>
+                    <h2>Total Days: {totalDays}</h2>
                     <table>
                         <thead>
                             <tr>
